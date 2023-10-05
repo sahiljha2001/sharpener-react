@@ -1,10 +1,22 @@
-function ExpenseItem(){
+import'./ExpenseItem.css';
+import'./ExpenseDetails';
+function ExpenseItem(props){
+  const month = props.date.toLocaleString('en-US',{month:'long'});
+  const day = props.date.toLocaleString('en-US',{day:'2-digit'});
+  const year = props.date.getFullYear();
     return (
-      <div>
-        <h2>Expense Items</h2>
-        <p>Food Rs 10</p>
-        <p>Petrol Rs 100</p>
-        <p>Movies Rs 200</p>
+      <div className="expense-item">
+        <div>
+          <div>{month}</div>
+        <div>{day}</div>
+        <div>{year}</div>
+        </div>
+        <div className="expense-item__description">
+          <h1>{props.title}</h1>
+          <div className="expense-item__price">{props.price}</div>
+
+           </div>
+        
       </div>
     );
 }
