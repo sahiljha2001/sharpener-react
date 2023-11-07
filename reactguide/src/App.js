@@ -1,15 +1,49 @@
 
-import './index.css'
-import './components/ExpenseItem';
-import ExpenseItem from './components/ExpenseItem';
+
+
+import ExpenseItem from './components/ExpenseItem.js';
 function App() {
-const expenses=[{date:new Date(2023,4,24),title:'car',location :'india',amount:500}]
+
+
+
+const expenses = [
+    {
+      id: 'e1',
+      title: 'Car Insurance',
+      amount: 294.67,
+      date: new Date(2022, 2, 28),
+      location: 'New York',
+    },
+    {
+      id: 'e2',
+      title: 'Groceries',
+      amount: 45.34,
+      date: new Date(2022, 3, 15),
+      location: 'Los Angeles',
+    },
+    {
+      id: 'e3',
+      title: 'Internet Bill',
+      amount: 89.99,
+      date: new Date(2022, 4, 20),
+      location: 'San Francisco',
+    },
+  ];
+
   return (
     <div>
-      <ExpenseItem date={expenses[0].date} title={expenses[0].title} amount={expenses[0].amount} location={expenses[0].location} ></ExpenseItem>
+      <h1>Expense Tracker</h1>
+      {expenses.map((expense) => (
+        <ExpenseItem
+          key={expense.id} 
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+          location={expense.location}
+        />
+      ))}
     </div>
-        
-);
+  );
 }
 
 export default App;
