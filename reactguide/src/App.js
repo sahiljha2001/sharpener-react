@@ -11,26 +11,16 @@ function App() {
   ];
   return (
     <div>
-      <ExpenseItem
-        date={expenses[0].date}
-        title={expenses[0].title}
-        price={expenses[0].price}
-      ></ExpenseItem>
-      <ExpenseItem
-        date={expenses[1].date}
-        title={expenses[1].title}
-        price={expenses[1].price}
-      ></ExpenseItem>
-      <ExpenseItem
-        date={expenses[2].date}
-        title={expenses[2].title}
-        price={expenses[2].price}
-      ></ExpenseItem>
-      <ExpenseItem
-        date={expenses[3].date}
-        title={expenses[3].title}
-        price={expenses[3].price}
-      ></ExpenseItem>
+      <div className="flex-none w-14 h-14">
+        {expenses.map((item) => (
+          <ExpenseItem
+            key={item.id}
+            date={item.date}
+            title={item.title}
+            price={item.price}
+          ></ExpenseItem>
+        ))}
+      </div>
     </div>
   );
 }
