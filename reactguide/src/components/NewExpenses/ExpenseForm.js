@@ -16,8 +16,17 @@ const ExpenseForm = () => {
        setEnteredamount(event.target.value);
        console.log(enteredamount);
      };
+     const submitHandler=(event)=>{
+      event.prefentdefault();
+      const expenseData={
+        title:enteredtitle,
+        data:entereddate,
+        amount:enteredamount
+      };
+      console.log(expenseData);
+     }
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="flex flex-wrap gap-4 text-left mb-4">
         <div>
           <label className="font-[bold] block mb-2">title</label>
