@@ -1,7 +1,8 @@
 
 
-import './components/ExpenseItem';
-import ExpenseItem from './components/ExpenseItem';
+
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpenses/NewExpense';
 function App() {
   const expenses = [
     {id :'i1', date: new Date(2023, 4, 12), title: "car", price: 2700 },
@@ -11,16 +12,11 @@ function App() {
   ];
   return (
     <div>
-      <div className="flex-none w-14 h-14">
-        {expenses.map((item) => (
-          <ExpenseItem
-            key={item.id}
-            date={item.date}
-            title={item.title}
-            price={item.price}
-          ></ExpenseItem>
-        ))}
-      </div>
+      <h2>Lets get started </h2>
+      <NewExpense></NewExpense>
+        <Expenses items={expenses}></Expenses>
+      
+
     </div>
   );
 }
