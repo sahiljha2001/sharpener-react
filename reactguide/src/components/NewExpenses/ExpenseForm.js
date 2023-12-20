@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const[enteredtitle,setEnteredtitle]= useState('');
     const titleHandler =(event)=>{
         setEnteredtitle(event.target.value);
@@ -17,13 +17,17 @@ const ExpenseForm = () => {
        console.log(enteredamount);
      };
      const submitHandler=(event)=>{
-      event.prefentdefault();
+        event.preventDefault();
       const expenseData={
         title:enteredtitle,
-        data:entereddate,
-        amount:enteredamount
+        date:new Date(entereddate),
+        price:enteredamount
       };
       console.log(expenseData);
+      props.onSaveExpensesData(expenseData);
+      setEnteredamount("")
+      setEntereddate("")
+      setEnteredtitle("")
      }
   return (
     <form onSubmit={submitHandler}>
@@ -32,6 +36,7 @@ const ExpenseForm = () => {
           <label className="font-[bold] block mb-2">title</label>
           <input
             type="text"
+            value={enteredtitle}
             onChange={titleHandler}
             className="border w-80 max-w-full p-2 rounded-md border-solid border-[#ccc]"
           ></input>
@@ -42,6 +47,7 @@ const ExpenseForm = () => {
             type="number"
             min={0.01}
             step={0.01}
+            value={enteredamount}
             onChange={amountHandler}
             className="border w-80 max-w-full p-2 rounded-md border-solid border-[#ccc]"
           ></input>
@@ -52,6 +58,7 @@ const ExpenseForm = () => {
             type="date"
             min="23-10-1"
             maxLength="24-10-1"
+            value={entereddate}
             onChange={dateHandler}
             className="border w-80 max-w-full p-2 rounded-md border-solid border-[#ccc]"
           ></input>

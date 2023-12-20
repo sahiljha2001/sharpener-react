@@ -10,11 +10,17 @@ function App() {
     { id :'i3',date: new Date(2023, 4, 13), title: "car", price: 28900 },
     { id :'i4',date: new Date(2023, 6, 23), title: "car", price: 2400 },
   ];
+  const expenseHandler=(expensesData)=>{
+     expenses.push(expensesData)
+     console.log(expenses)
+  }
+  
   return (
     <div>
       <h2>Lets get started </h2>
-      <NewExpense></NewExpense>
-        <Expenses items={expenses}></Expenses>
+      <NewExpense onExpenseData={expenseHandler
+      }></NewExpense>
+        <Expenses items={expenses} ></Expenses>
       
 
     </div>
