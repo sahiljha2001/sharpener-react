@@ -1,6 +1,7 @@
 
 
 
+import { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpenses/NewExpense';
 function App() {
@@ -10,8 +11,10 @@ function App() {
     { id :'i3',date: new Date(2023, 4, 13), title: "car", price: 28900 },
     { id :'i4',date: new Date(2023, 6, 23), title: "car", price: 2400 },
   ];
+   const [expens,setExpens]=useState([]);
   const expenseHandler=(expensesData)=>{
-     expenses.push(expensesData)
+     expenses.push(expensesData);
+     setExpens(expenses);
      console.log(expenses)
   }
   
