@@ -5,7 +5,7 @@ const ExpenseFilter = (props) => {
      props.onChangeFilter(event.target.value);
    };
   return (
-    <div className=" text-[white] px-4 py-0">
+    <div className=" text-[black] px-4 py-0">
       <div className="flex w-full items-center justify-between mx-0 my-4">
         <label>Filter by year</label>
         <select value={props.selected} onChange={dropdownChangeHandler}>

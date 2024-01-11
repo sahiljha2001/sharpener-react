@@ -8,12 +8,12 @@ function App() {
   const [expens, setExpens] = useState([]);
   const expenses = [
     {id :'i1', date: new Date(2023, 4, 12), title: "car", price: 2700 },
-    { id :'i2',date: new Date(2023, 4, 29), title: "car", price: 2800 },
-    { id :'i3',date: new Date(2023, 4, 13), title: "car", price: 28900 },
-    { id :'i4',date: new Date(2023, 6, 23), title: "car", price: 2400 },
+    { id :'i2',date: new Date(2023, 4, 29), title: "bus", price: 2800 },
+    { id :'i3',date: new Date(2023, 4, 13), title: "phone", price: 28900 },
+    { id :'i4',date: new Date(2023, 6, 23), title: "shoes", price: 2400 },
   ];
    
-  const expenseHandler=(expensesData)=>{
+  const expenseHandler= (expensesData) =>{
      expenses.push(expensesData);
      expens.push(expenses)
      setExpens((prevExpens)=>{
@@ -24,10 +24,10 @@ function App() {
   
   return (
     <div>
-      <h2>Lets get started </h2>
+      <h2>expense tracker </h2>
       <NewExpense onExpenseData={expenseHandler
-      }></NewExpense>
-        <Expenses items={expenses} ></Expenses>
+      }/>
+        <Expenses items={expenses} />
       
 
     </div>
