@@ -3,6 +3,7 @@ import React from 'react'
 const ExpenseFilter = (props) => {
    const dropdownChangeHandler = (event) => {
      props.onChangeFilter(event.target.value);
+     
    };
   return (
     <div className=" text-[black] px-4 py-0">

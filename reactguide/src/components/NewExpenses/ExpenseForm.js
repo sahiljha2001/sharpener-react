@@ -4,7 +4,7 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredtitle] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
   const [enteredamount, setEnteredamount] = useState("");
-  const [display, setDisplay] =useState(true);
+  // const [display, setDisplay] =useState(true);
   const titleHandler = (event) => {
     setEnteredtitle(event.target.value);
     console.log(enteredTitle);
@@ -34,7 +34,7 @@ const ExpenseForm = (props) => {
     console.log(enteredamount);
   };
   const submitHandler = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const expenseData = {
       title: enteredTitle,
       date: new Date(enteredDate),
@@ -45,11 +45,12 @@ const ExpenseForm = (props) => {
     setEnteredamount("");
     setEnteredDate("");
     setEnteredtitle("");
-    setDisplay(false);
+
+    // setDisplay(false);
   };
   return (
     <div>
-      {display ? (
+      
         <form onSubmit={submitHandler}>
           <div className="flex flex-wrap gap-4 text-left mb-4">
             <div>
@@ -88,7 +89,7 @@ const ExpenseForm = (props) => {
             <button
               type="submit"
               className="cursor-pointer border bg-[#40005d] text-[white] mr-9 px-4 py-4  mt-3 rounded-xl border-solid border-[#40005d] hover:bg-[#510674] hover:border-[#510674] active:bg-[#510674] active:border-[#510674] "
-           onClick={()=>setDisplay(false)} >
+           onClick={props.onCancelHandler} >
               cancel
             </button>
             <button
@@ -100,18 +101,7 @@ const ExpenseForm = (props) => {
             </button>
           </div>
         </form>
-      ) : (
-        <div>
-          {" "}
-          <button
-            type="submit"
-            className="cursor-pointer border bg-[#40005d] text-[white] mr-4 px-8 py-4 rounded-xl border-solid border-[#40005d] hover:bg-[#510674] hover:border-[#510674] active:bg-[#510674] active:border-[#510674] "
-           onClick={()=>setDisplay(true)}>
-            {" "}
-            add new expense
-          </button>{" "}
-        </div>
-      )}
+     
     </div>
   );
 };
